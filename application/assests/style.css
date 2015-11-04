@@ -6655,7 +6655,6 @@ body:not(.device-touch) .button {
 
 .button.button-desc div { display: inline-block; }
 
-.button.button-rounded { border-radius: 0px !important; }
 
 
 /* Buttons - Border

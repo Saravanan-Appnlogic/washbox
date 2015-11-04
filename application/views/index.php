@@ -1,3 +1,77 @@
+<style>
+#orderNowBox .modal-dialog{
+    margin-top: 68px;	    
+}
+.verticalLine {
+    border-right: thin solid #E0E0E0;
+    height:386px;
+    
+}
+.button-orange{
+    background: #FF9C2D;
+    margin:5px 1px;
+}
+.requestLocation{
+    padding: 10%;
+}
+.requestLocation .button-lime{
+    margin: 0px;
+}
+.requestLocationServe{
+    padding-top: 10%;
+    padding-left: 5%;
+}
+.requestLocation h2 i{
+    position: absolute;
+    margin-left: 7px;
+}
+.requestLocationServe h2 i{
+/*    border-bottom: 2px solid white;
+*/}
+.requestLocationServe h4{
+}
+#cityName{
+    text-align: center !important;
+}
+#orderNowBox .modal-content{
+    border-radius: 0px;
+    background: #1FA5FE;
+    color: white;
+}
+#orderNowBox .button-white 
+{
+    color: black !important;
+
+}
+.no-padding{
+    padding: 3px;
+}
+.form-control {
+    background-color: #ffffff;
+    background-image: none;
+    border: 2px solid #ebebeb;
+    border-radius: 2px;
+    box-shadow: 0 1px 16px 2px rgba(0, 0, 0, 0.075) inset;
+    color: grey;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.locationNames{
+ color: #000;
+ font-size: medium;
+}
+.order-btn {
+    background-color: #ff683a;
+    border-color: #eea236;
+    color: #ffffff;
+}
+
+</style>
 <section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
 
             <div class="swiper-container swiper-parent">
@@ -8,12 +82,11 @@
                                 <h2 data-caption-animate="fadeInUp">WASHBOX<br/></h2><h2><span class="subhead">SAVE LIFE,LIVE BETTER Your Laundry Washed,Ironed, Folded & Delivered in 48 Hours</span></h2>
                             <div class="" data-caption-animate="fadeInUp">
 				<div class="row">
-				    <div >
-				   
-				    <a class="btn btn1 btn-warning button-border button-dark button-rounded noleftmargin" >Order Now</a>
+				    <div>
+					<a class="btn btn1 order-btn button-border button-dark button-rounded noleftmargin" data-toggle="modal" data-target=".bs-example-modal-lg" >Order Now</a>
 				</div>
 				    <div class="">
-					<?php echo site_url('wash_BoxCntrl/wash_box_Orderpage');?>
+					
 				    </div>
 				</div>
 			    </div>
@@ -49,9 +122,7 @@
 		
 		
                 jQuery(document).ready(function($){
-		    
-		   
-                    var swiperSlider = new Swiper('.swiper-parent',{
+		    var swiperSlider = new Swiper('.swiper-parent',{
                         paginationClickable: false,
                         slidesPerView: 1,
                         grabCursor: true,
@@ -126,8 +197,7 @@
 
         </section>
 
-        <!-- Content
-        ============================================= -->
+        <!-- Content============================================= -->
         <section id="content">
 
             <div class="content-wrap">
@@ -179,29 +249,42 @@
 		 
 	     <!--MODAL START-->
 	      <!-- Large modal -->
-                        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+                 
 
-                        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
+                        <div ng-controller="locationController" id="orderNowBox"class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-md">
                                 <div class="modal-body">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
-                                        </div>
+
                                         <div class="modal-body">
-                                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                                            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                            <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                                            <p class="nobottommargin">Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                        </div>
+					    <div class="row">
+						<div class="col-md-12"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>
+					    </div>
+					    <div class="row">
+						<div class="col-md-6">
+						    <div class="requestLocationServe ">
+							<h2>Locations we serve <i class="icon-truck"></i></h2>
+							<div class="col-md-12 no-padding">
+							    <h4>Koramangala, Hosapalaya, Omkar Nagar, Vittasandra.</h4>
+							</div>
+							<a class="button button-3d button-rounded button-orange button-reveal  tright" href="<?php echo site_url('wash_BoxCntrl/wash_box_Orderpage');?>"><i class="icon-angle-right"></i><span >Proceed</span></a>
+						    </div>
+						</div>
+						<div class="col-md-6">
+						    <form class="requestLocation" ng-submit="placeForm()" role="form" method="post">
+							<div class="form-group"><h2>Request your location <i class="icon-map-marker2"></i></h2></div>
+							<div class="form-group"><input id="cityName" ng-model="cityName" placeholder="Enter Your City Name" class="required form-control input-block-level" type="text" value=""></div>
+							<div class="form-group "><button type="submit" class="button button-3d button-rounded button-lime button-reveal   tright"  href="#"><i class="icon-map-marker2"></i><span>Submit </span></button></div>
+						    </form>
+						</div>
+					    </div>
+					    
+					</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-     <!--MODAL ENDS-->
+			<!--MODAL ENDS-->
 
                 <div class="container clearfix colpadd">
 
@@ -240,5 +323,41 @@
 
                 <div class="clear"></div>
 	</section><!-- #content end -->
+	
+<script>
+   
+    
+    //MOving Objects starts
+    var margin=0;
+    var marginLocation=0;
+    function moveVan() {
+	
+	if (margin>70) {
+	    margin=0;
+	    
+	}
 
+	temp=margin+"px";
+
+	$(".requestLocationServe h2 i").css("padding-left", temp);
+	
+	margin=margin+2;
+    }
+    //setInterval(moveVan, 200);
+    function locationIcon() {
+	if (marginLocation==0) {
+	    marginLocation=-1;
+	}
+	else{
+	    marginLocation=0;
+
+	}
+	tempLocation=marginLocation+"px";
+
+	$(".requestLocation h2 i").css("margin-top", tempLocation);
+    }
+    setInterval(locationIcon, 200);
+//Moving Objects ends
+
+</script>
     
